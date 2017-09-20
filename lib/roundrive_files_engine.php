@@ -62,10 +62,17 @@ class roundrive_files_engine
         $this->rc      = $plugin->rc;
         $this->timeout = $this->rc->config->get('session_lifetime') * 60;
 
+	//check if the user entered a complete share link and strip it down to the key
+	$pubkey_val = $this->rc->config->get('roundrive_sciebo_pubkey');
+	$pubkey_real = substr($pubkey_val, strrpos($pubkey_val, "/"));
+	if(substr($pubkey_real,0,1)=="/") $pubkey_real = substr($pubkey_real,1);
+
         $settings = array(
                 'baseUri' => $this->rc->config->get('driver_webdav_url'),
-                'userName' => $this->rc->user->get_username(),
-                'password' => $this->rc->get_user_password(),
+		'userName' => $pubkey_real,
+		'password' => $this->rc->config->get('roundrive_sciebo_passphrase'),
+
+
         );
 
         $client = new Client($settings);
@@ -980,7 +987,7 @@ class roundrive_files_engine
       }
       catch (Exception $e) {
         $result['status'] = 'NOK';
-        $result['reason'] = "Can't liste folders";
+        $result['reason'] = 'Can\'t list folders. <a href="?_task=settings&_action=preferences">Please check the sciebo preferences</a>.';
       }
       echo json_encode($result);
       exit;
@@ -1024,7 +1031,7 @@ class roundrive_files_engine
       }
       catch (Exception $e) {
         $result['status'] = 'NOK';
-        $result['reason'] = "Can't liste files";
+        $result['reason'] = "Can't list files";
       }
       echo json_encode($result);
       exit;
