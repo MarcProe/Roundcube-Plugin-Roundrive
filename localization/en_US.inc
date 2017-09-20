@@ -4,6 +4,7 @@
  *
  * @version @package_version@
  * @author Thomas Payen <thomas.payen@apitech.fr>
+ * @author Marcus Proest <marcus@proest.net>
  *
  * This plugin is inspired by kolab_files plugin
  * Use flysystem library : https://github.com/thephpleague/flysystem
@@ -104,5 +105,5 @@ $labels['arialabelfilecontent'] = 'File content';
 $labels['sciebo auth'] = 'Sciebo Authentication';
 $labels['enter_pubkey'] = 'Share link';
 $labels['enter_passphrase'] = 'Password for the public link';
-$labels['sciebo_info'] = 'Please <a href="https://www.sciebo.de/en/manual/web.html" target="_new">share a folder in sciebo<br />and use the share link</a> in the<br />field above to access this share<br />via the webmailer. To allow saving<br />attachements to the folder, allow<br />editing in sciebo. If you set a<br />passphrase, set it above as well.';
+$labels['sciebo_info'] = 'Please <a href="https://www.sciebo.de/en/manual/web.html" target="_new">share a folder in sciebo<br />and use the share link</a> in the<br />field above to access this share<br />via the webmailer. To allow saving<br />attachments to the folder, allow<br />editing in sciebo. If you set a<br />passphrase, set it above as well.';
 ?>
