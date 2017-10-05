@@ -439,3 +439,15 @@ table.propform td.source table.propform td {
     no-repeat
     left center;
 }
+
+input.button, .buttongroup {
+    display: inline-block;
+    margin: 0 2px;
+    padding: 2px 5px;
+    color: #525252;
+    border: 1px solid #c6c6c6;
+    border-radius: 4px;
+    background: #e6e6e6;
+    text-decoration: none;
+}
+
